@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@400;500&display=swap');
+$bg-color-1: #f9f4ef;
+$bg-color-2: #fffffe;
+$bg-color-3: #eaddcf;
+
+$accent: #8c7851;
+$tertiary: #f25042;
+
+$grey: #cecece;
+$grey-dark: #465b65;
+
+$font-primary: #fffffe;
+$font-headline: #020826;
+$font-para: #716040;
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+$bp-4k: 125em; //2000px
+$bp-largest: 100em; //1600px
+$bp-x-large: 87.5em; //1400px
+$bp-larger: 75em; //1200px
+$bp-large: 62.5em; //1000px
+$bp-medium: 56.25em; //900px
+$bp-smaller: 43.75rem; //700
+$bp-small: 37.5em; //600px
+$bp-smallest: 31.25em; //500px
+html {
+	box-sizing: border-box;
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+
+	@media only screen and(min-width:$bp-x-large) {
+		font-size: 75%;
+	}
+	@media only screen and(min-width:$bp-4k) {
+		font-size: 110%;
+	}
+	@media only screen and(max-width:$bp-larger) {
+		font-size: 57.5%;
+	}
+	@media only screen and(max-width:$bp-large) {
+		font-size: 55%;
+	}
+	@media only screen and(max-width:$bp-medium) {
+		font-size: 52%;
+	}
+	@media only screen and(max-width:$bp-smaller) {
+		font-size: 50%;
+	}
+}
+
+body {
+	background-color: $bg-color-1;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	line-height: 1.6;
+	color: $font-primary;
+	font-size: 1.6rem;
+	overflow-x: hidden;
+	position: relative;
+}
+a {
+	text-decoration: none;
+	color: $font-primary;
+	font-family: 'Montserrat', sans-serif;
+}
+.heading-1 {
+	font-family: 'Playfair Display', serif;
+	font-weight: 500;
+	color: $font-headline;
+	font-size: 3.5rem;
+}
+.heading-2 {
+	font-family: 'Playfair Display', serif;
+	font-weight: 400;
+	font-size: 3rem;
+}
+.heading-3 {
+	font-family: 'Playfair Display', serif;
+	font-size: 2.6rem;
+	font-weight: 500;
+}
+.btn {
+	text-decoration: none;
+	border: 0;
+	border-radius: 3px;
+	background-color: $accent;
+	padding: 1rem 2.5rem;
+	color: $font-primary;
+	font-size: 1.6rem;
+	outline: none;
+	cursor: pointer;
+	transition: all 0.2s ease-out;
+	text-transform: uppercase;
+	text-align: center;
+}
+/* .btn:hover {
+	background-color: $color-primary-dark;
+} */
+/* .btn-sec {
+	background-color: $grey;
+}
+.btn-sec:hover {
+	background-color: $grey-dark;
+} */
+
+//animations
+@keyframes slideUp {
+	0% {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	100% {
+		opacity: 1;
+		transform: inherit;
+	}
+}
+@keyframes floating {
+	0% {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}

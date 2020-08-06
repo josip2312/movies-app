@@ -104,13 +104,13 @@
 						v-for="(tech, index) in getMovie.technical_specs"
 						:key="index"
 					>
-						<span v-html="tech[0]">
+						<p v-html="tech[0]">
 							<!-- {{ tech[0] }} -->
-						</span>
-						:
-						<span v-html="tech[1]">
+						</p>
+
+						<p v-html="tech[1]">
 							<!-- {{ tech[1] }} -->
-						</span>
+						</p>
 					</div>
 				</div>
 			</div>
@@ -330,8 +330,10 @@ export default {
 	}
 	.tech {
 		color: $font-headline;
-
-		span:first-child {
+		&:not(:first-child) {
+			margin-bottom: 0.5rem;
+		}
+		p:first-child {
 			font-weight: 500;
 			font-size: 2rem;
 		}

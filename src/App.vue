@@ -7,16 +7,19 @@
 		<transition name="fade" mode="out-in">
 			<Error />
 		</transition>
+		<Footer />
 	</div>
 </template>
 <script>
 import Header from '@/components/Header.vue';
+import Footer from '@/components/Footer.vue';
 import Error from '@/components/Error.vue';
 export default {
 	name: 'App',
 	components: {
 		Header,
 		Error,
+		Footer,
 	},
 };
 </script>

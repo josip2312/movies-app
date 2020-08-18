@@ -33,8 +33,11 @@ export default {};
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
-
 		width: 25%;
+		img {
+			width: 2.5rem;
+			height: 2.5rem;
+		}
 	}
 	&-down {
 		flex: 1;

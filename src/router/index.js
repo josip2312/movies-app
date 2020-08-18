@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-//import Index from '../views/Index.vue';
 
 Vue.use(VueRouter);
 
@@ -23,16 +22,13 @@ const routes = [
 		component: () =>
 			import(/* webpackChunkName: "about" */ '../views/MovieDetails.vue'),
 	},
-	{
-		path: '/movies/favorites',
-		name: 'Favorites',
-		component: () =>
-			import(/* webpackChunkName: "about" */ '../views/Favorites.vue'),
-	},
 ];
 
 const router = new VueRouter({
 	mode: 'history',
+	scrollBehavior() {
+		return { x: 0, y: 0 };
+	},
 	base: process.env.BASE_URL,
 	routes,
 });

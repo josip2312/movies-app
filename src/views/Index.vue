@@ -71,19 +71,20 @@ main {
 			display: flex;
 			flex-direction: column;
 			justify-content: space-around;
-			//align-items: center;
+
 			width: 100%;
 			height: 50%;
 		}
 		label {
 			color: $font-headline;
-			font-size: 1.8rem;
+			font-size: 2rem;
 		}
 		.search-input {
 			position: relative;
 		}
 		input {
 			padding: 1.2rem 2rem;
+			font-size: 1.6rem;
 			border-radius: 1rem;
 			border: none;
 			background-color: #c4c4c4;
@@ -97,14 +98,13 @@ main {
 			border-bottom: 1px solid $font-headline;
 		}
 		img {
-			top: 0.6rem;
+			width: 2.75rem;
+			height: 2.75rem;
+			top: 50%;
+			transform: translateY(-50%);
 			right: 15%;
 			position: absolute;
 		}
-	}
-	.btn {
-		padding: 1.3rem 2.6rem;
-		//width: ;
 	}
 }
 </style>

@@ -10,30 +10,10 @@
 					<div class="rating">
 						<div class="rating-top">
 							<span>
-								<svg
-									@click="addToFavorites"
-									v-if="getMovie.favorited"
-									xmlns="http://www.w3.org/2000/svg"
-									width="24"
-									height="24"
-									viewBox="0 0 24 24"
-								>
-									<path
-										d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"
-									/>
-								</svg>
-								<svg
-									@click="addToFavorites(getMovie.id)"
-									v-else
-									xmlns="http://www.w3.org/2000/svg"
-									width="24"
-									height="24"
-									viewBox="0 0 24 24"
-								>
-									<path
-										d="M12 5.173l2.335 4.817 5.305.732-3.861 3.71.942 5.27-4.721-2.524-4.721 2.525.942-5.27-3.861-3.71 5.305-.733 2.335-4.817zm0-4.586l-3.668 7.568-8.332 1.151 6.064 5.828-1.48 8.279 7.416-3.967 7.416 3.966-1.48-8.279 6.064-5.827-8.332-1.15-3.668-7.569z"
-									/>
-								</svg>
+								<img
+									src="../assets/img/emptystar.svg"
+									alt="Star icon"
+								/>
 							</span>
 							<span>{{ getMovie.rating }} <span>/10</span> </span>
 						</div>
@@ -104,49 +84,45 @@
 						v-for="(tech, index) in getMovie.technical_specs"
 						:key="index"
 					>
-						<p v-html="tech[0]">
-							<!-- {{ tech[0] }} -->
-						</p>
+						<p v-html="tech[0]"></p>
 
-						<p v-html="tech[1]">
-							<!-- {{ tech[1] }} -->
-						</p>
+						<p v-html="tech[1]"></p>
 					</div>
 				</div>
 			</div>
 		</div>
 		<h1 class="heading-1" v-else>
-			Sorry, there are no details for this movie
+			Sorry, there are no details for this movie.
 		</h1>
 	</section>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters } from 'vuex';
 export default {
 	name: 'Details',
 	computed: {
 		...mapGetters(['getMovie']),
-	},
-	methods: {
-		...mapActions(['addToFavorites']),
 	},
 };
 </script>
 
 <style lang="scss" scoped>
 #details {
-	min-height: 90vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	min-height: 90vh;
 	padding-bottom: 5rem;
 }
 .container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
 	width: 75%;
+	max-width: 120rem;
 	margin: 0 auto;
 	background-color: $bg-color-2;
 	padding-bottom: 5rem;
@@ -163,13 +139,17 @@ export default {
 	.movie-main-info {
 		display: flex;
 		align-items: center;
+
+		padding-top: 2rem;
+		width: 80%;
+
+		margin: 0 auto;
+
 		@media only screen and(max-width:$bp-smallest) {
 			flex-direction: column;
 			align-items: center;
 		}
-		padding-top: 2rem;
-		width: 80%;
-		margin: 0 auto;
+
 		h2 {
 			font-size: 3rem;
 			font-weight: 500;
@@ -186,9 +166,9 @@ export default {
 			}
 		}
 		.rating {
-			margin-left: auto;
 			display: flex;
 			flex-direction: column;
+			margin-left: auto;
 
 			@media only screen and(max-width:$bp-smallest) {
 				margin: 0;
@@ -200,13 +180,6 @@ export default {
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
-				svg {
-					cursor: pointer;
-					fill: $font-headline;
-					transition: all 0.1s ease;
-				}
-				svg:hover {
-				}
 			}
 			span {
 				font-size: 2rem;
@@ -224,6 +197,7 @@ export default {
 		display: flex;
 		align-items: flex-start;
 		justify-content: flex-start;
+
 		padding-bottom: 2rem;
 		width: 80%;
 		margin: 0 auto;
@@ -235,6 +209,7 @@ export default {
 }
 .movie-bottom {
 	display: flex;
+
 	width: 100%;
 	min-height: 50vh;
 	border-bottom: 1px solid $grey;
@@ -253,29 +228,23 @@ export default {
 
 		width: 100%;
 		height: 100%;
-		@media only screen and(max-width:$bp-smaller) {
-			width: 50%;
-			height: 50%;
-		}
-		@media only screen and(max-width:$bp-smallest) {
-			width: 75%;
-			height: 75%;
-		}
+		max-width: 40rem;
 	}
 }
 .movie-plot {
-	margin-top: 2rem;
-	color: $font-headline;
 	flex: 2;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-around;
+	max-width: 60ch;
+
+	margin-top: 2rem;
+	color: $font-headline;
 	@media only screen and(max-width:$bp-medium) {
 		flex: 1.5;
 	}
 
-	//height: 80%;
 	.actors {
 		width: 75%;
 		@media only screen and(max-width:$bp-smaller) {
@@ -297,7 +266,7 @@ export default {
 		@media only screen and(max-width:$bp-smaller) {
 			margin-top: 1rem;
 		}
-		font-size: 1.7rem;
+
 		width: 75%;
 		margin: 0 auto;
 	}
@@ -329,6 +298,7 @@ export default {
 		}
 	}
 	.tech {
+		max-width: 60ch;
 		color: $font-headline;
 		&:not(:first-child) {
 			margin-bottom: 0.5rem;

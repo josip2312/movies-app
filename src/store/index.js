@@ -12,6 +12,8 @@ export default new Vuex.Store({
 	state: {
 		error: null,
 		isError: false,
+		loading: false,
+
 		movies: {},
 		movie: {},
 		favorites: [],
@@ -23,7 +25,7 @@ export default new Vuex.Store({
 				movies: state.movies,
 				movie: state.movie,
 				favorites: state.favorites,
-				//error: state.error,
+				loading: state.loading,
 			}),
 		}),
 	],
@@ -34,6 +36,7 @@ export default new Vuex.Store({
 		getMovie: (state) => state.movie,
 		getError: (state) => state.error,
 		isError: (state) => state.isError,
+		isLoading: (state) => state.loading,
 	},
 	mutations: {
 		ERROR: (state, data) => {
@@ -55,18 +58,7 @@ export default new Vuex.Store({
 
 		SET_MOVIE: (state, data) => {
 			state.movie = data;
-
-			//state.movie.favorited = false;
 			router.push({ name: 'MovieDetails' });
-		},
-		SET_FAV_MOVIE: (state, data) => {
-			state.movies.filter((movie) => {
-				if (movie.id === data) {
-					state.favorites.push(movie);
-					movie.favorited = !movie.favorited;
-				}
-			});
-			state.movie.favorited = !state.movie.favorited;
 		},
 	},
 	actions: {
@@ -97,9 +89,7 @@ export default new Vuex.Store({
 				console.error(error.response);
 			}
 		},
-		addToFavorites({ commit }, payload) {
-			commit('SET_FAV_MOVIE', payload);
-		},
+
 		setError({ commit }) {
 			clearTimeout(timeout);
 			commit('CLEAR_ERROR');

@@ -10,7 +10,7 @@ $grey: #cecece;
 $grey-dark: #465b65;
 
 $font-primary: #fffffe;
-$font-headline: #020826;
+$font-headline: #182840;
 $font-para: #716040;
 
 * {
@@ -41,7 +41,7 @@ html {
 		font-size: 75%;
 	}
 	@media only screen and(min-width:$bp-4k) {
-		font-size: 110%;
+		font-size: 120%;
 	}
 	@media only screen and(max-width:$bp-larger) {
 		font-size: 57.5%;
@@ -65,6 +65,7 @@ body {
 	color: $font-primary;
 	font-size: 1.6rem;
 	overflow-x: hidden;
+
 	position: relative;
 }
 a {
@@ -76,12 +77,14 @@ a {
 	font-family: 'Playfair Display', serif;
 	font-weight: 500;
 	color: $font-headline;
-	font-size: 3.5rem;
+	font-size: 4rem;
+	line-height: 1;
 }
 .heading-2 {
 	font-family: 'Playfair Display', serif;
 	font-weight: 400;
-	font-size: 3rem;
+	font-size: 3.2rem;
+	line-height: 1;
 }
 .heading-3 {
 	font-family: 'Playfair Display', serif;
@@ -93,7 +96,7 @@ a {
 	border: 0;
 	border-radius: 3px;
 	background-color: $accent;
-	padding: 1rem 2.5rem;
+	padding: 1.2rem 2.6rem;
 	color: $font-primary;
 	font-size: 1.6rem;
 	outline: none;

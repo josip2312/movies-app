@@ -1,21 +1,19 @@
 <template>
 	<section id="movies">
-		<div class="wrapper">
-			<div class="container">
-				<Card
-					v-for="(movie, index) in getMovies"
-					:key="index"
-					@click.native="fetchMovie(movie.id)"
-				>
-					<template v-slot:image>
-						<img :src="movie.image" alt="" />
-					</template>
+		<div class="container">
+			<Card
+				v-for="(movie, index) in getMovies"
+				:key="index"
+				@click.native="fetchMovie(movie.id)"
+			>
+				<template v-slot:image>
+					<img :src="movie.image" alt="" />
+				</template>
 
-					<template v-slot:content>
-						{{ movie.title }}
-					</template>
-				</Card>
-			</div>
+				<template v-slot:content>
+					{{ movie.title }}
+				</template>
+			</Card>
 		</div>
 	</section>
 </template>
@@ -40,32 +38,25 @@ export default {
 <style lang="scss" scoped>
 #movies {
 	display: flex;
-	align-items: center;
+
+	justify-content: center;
 	background-color: $bg-color-2;
-	min-height: 91vh;
+
 	position: relative;
 }
 
-.wrapper {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
 .container {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: flex-start;
 
-	flex-wrap: wrap;
-
+	background-color: #ededed;
 	padding: 5rem 0;
 	width: 80%;
-	//margin: 0 auto;
-	@media only screen and(max-width: $bp-small) {
-		width: 90%;
-	}
-	@media only screen and(max-width: $bp-smallest) {
+	flex-wrap: wrap;
+	@media only screen and(max-width: $bp-smaller) {
 		justify-content: center;
+		width: 90%;
 	}
 }
 </style>

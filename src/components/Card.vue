@@ -17,16 +17,14 @@ export default {
 
 <style lang="scss" scoped>
 .card {
-	height: 60vh;
 	flex-basis: 27%;
+	max-width: 30rem;
 	margin: 4rem 3%;
-	@media only screen and(max-width: $bp-medium) {
-		flex-basis: 44%;
-	}
-	@media only screen and(max-width: $bp-smallest) {
-		flex-basis: 75%;
-	}
 	cursor: pointer;
+	@media only screen and(max-width: $bp-smaller) {
+		flex-basis: 80%;
+		max-width: 35rem;
+	}
 	.image {
 		height: 100%;
 		img {

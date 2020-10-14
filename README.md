@@ -1,6 +1,6 @@
 # movies
 
-# movies app using https://rapidapi.com/hmerritt/api/imdb-internet-movie-database-unofficial
+## movies app using https://imdb-internet-movie-database-unofficial.p.rapidapi.com
 
 ## Project setup
 

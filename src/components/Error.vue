@@ -1,12 +1,18 @@
 <template>
-	<div class="wrapper" v-if="isError">
-		<div class="error">
-			<img src="../assets/img/x.svg" alt="X icon" @click="setError" />
-			<span>
-				{{ getError }}
-			</span>
+	<transition name="fade" mode="out-in">
+		<div class="wrapper" v-if="isError">
+			<div class="error">
+				<img
+					src="../assets/img/x.svg"
+					alt="X icon"
+					@click="clearError"
+				/>
+				<span>
+					{{ getError }}
+				</span>
+			</div>
 		</div>
-	</div>
+	</transition>
 </template>
 
 <script>
@@ -19,7 +25,7 @@ export default {
 		...mapGetters(['getError', 'isError']),
 	},
 	methods: {
-		...mapActions(['setError']),
+		...mapActions(['clearError']),
 	},
 };
 </script>
@@ -36,17 +42,17 @@ export default {
 	z-index: 1;
 }
 .error {
-	position: fixed;
+	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 75%;
+	width: 85%;
 	max-width: 40rem;
-	height: 20rem;
+	padding: 5rem 3rem;
 	z-index: 20;
 	background-color: $bg-color-2;
 	border-radius: 3px;
-	padding: 1rem;
+
 	color: $font-headline;
 	font-size: 2.5rem;
 	display: flex;

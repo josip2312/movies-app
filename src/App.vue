@@ -1,13 +1,14 @@
 <template>
 	<div id="app">
 		<Header />
-		<transition name="fade" mode="out-in">
-			<router-view />
-		</transition>
-		<transition name="fade" mode="out-in">
-			<Error />
-		</transition>
+		<div class="wrap">
+			<transition name="fade" mode="out-in">
+				<router-view />
+			</transition>
+		</div>
 		<Footer />
+
+		<Error />
 		<Loader v-if="isLoading" />
 	</div>
 </template>
@@ -32,16 +33,9 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'assets/sass/base';
+@import '@/assets/sass/app.scss';
 
-.fade-enter-active,
-.fade-leave-active {
-	transition-duration: 0.2s;
-	transition-property: opacity;
-	transition-timing-function: ease;
-}
-.fade-enter,
-.fade-leave-to {
-	opacity: 0;
+.wrap {
+	min-height: 90vh;
 }
 </style>

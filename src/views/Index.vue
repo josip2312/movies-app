@@ -3,7 +3,7 @@
 		<div class="container">
 			<h1 class="heading-1">Find Your Favorite Movies</h1>
 
-			<form @submit.prevent="findMovies(search)" class="search">
+			<form @submit.prevent="findMovies(search)" class="search spacing">
 				<div class="search-fields">
 					<label for="search">Enter movie name</label>
 
@@ -17,7 +17,7 @@
 						<img src="../assets/img/search.svg" alt="" />
 					</div>
 				</div>
-				<button type="submit" class="btn">
+				<button type="submit" class="btn search-btn">
 					Search
 				</button>
 			</form>
@@ -44,55 +44,50 @@ export default {
 main {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 
 	min-height: 91vh;
-	padding: 0 2rem;
+	padding: 0 1rem;
 }
 .container {
 	background-color: $bg-color-2;
-	margin-top: 10rem;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-around;
-	padding: 3rem;
-	height: 55vh;
+	padding: 5rem 2.5rem;
 	box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
 	text-align: center;
-	.search {
-		height: 70%;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-around;
-		align-items: center;
-		width: 100%;
-		text-align: center;
-		&-fields {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-around;
 
+	animation: down 1s ease-in-out forwards;
+	.heading-1 {
+		margin-bottom: 5rem;
+	}
+	.search {
+		width: 100%;
+
+		&-fields {
 			width: 100%;
-			height: 50%;
 		}
 		label {
-			color: $font-headline;
+			display: block;
+			color: $grey-dark;
 			font-size: 2rem;
+			margin-bottom: 1rem;
 		}
 		.search-input {
 			position: relative;
+			width: 100%;
+			max-width: 37.5rem;
+			margin: 0 auto;
 		}
 		input {
-			padding: 1.2rem 2rem;
-			font-size: 1.6rem;
-			border-radius: 1rem;
+			padding: 1rem 2rem;
+
 			border: none;
 			background-color: #c4c4c4;
 			outline: none;
-			width: 75%;
+			width: 100%;
+
 			margin: 0 auto;
 			border-bottom: 1px solid #c4c4c4;
-			transition: all 0.2s ease;
+			transition: border 0.2s ease-in-out;
 		}
 		input:focus {
 			border-bottom: 1px solid $font-headline;
@@ -100,11 +95,14 @@ main {
 		img {
 			width: 2.75rem;
 			height: 2.75rem;
-			top: 50%;
-			transform: translateY(-50%);
-			right: 15%;
 			position: absolute;
+			top: 50%;
+			right: 1rem;
+			transform: translateY(-50%);
 		}
+	}
+	.search-btn:hover {
+		transform: scale(1.05);
 	}
 }
 </style>

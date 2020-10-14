@@ -11,29 +11,28 @@
 
 <script>
 export default {
-	name: 'Card',
+	name: 'MovieCard',
 };
 </script>
 
 <style lang="scss" scoped>
 .card {
-	flex-basis: 27%;
-	max-width: 30rem;
-	margin: 4rem 3%;
+	padding: 0 2.5rem;
+	flex-basis: 50%;
+
+	margin: 4rem 0;
 	cursor: pointer;
-	@media only screen and(max-width: $bp-smaller) {
-		flex-basis: 80%;
-		max-width: 35rem;
+	@media only screen and(max-width: $v-7) {
+		flex-basis: 100%;
 	}
+
 	.image {
-		height: 100%;
 		img {
 			border-radius: 3px;
 			overflow: hidden;
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-			object-position: bottom;
 		}
 	}
 	.content {
@@ -41,8 +40,8 @@ export default {
 		background-color: $bg-color-3;
 		text-align: center;
 		color: $font-headline;
-		padding: 0.5rem 0;
-		font-size: 2rem;
+		padding: 0.75rem 0;
+		font-size: 2.2rem;
 		font-weight: 500;
 	}
 }

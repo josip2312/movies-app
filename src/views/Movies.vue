@@ -1,30 +1,30 @@
 <template>
 	<section id="movies">
 		<div class="container">
-			<Card
+			<MovieCard
 				v-for="(movie, index) in getMovies"
 				:key="index"
 				@click.native="fetchMovie(movie.id)"
 			>
-				<template v-slot:image>
+				<template #image>
 					<img :src="movie.image" alt="" />
 				</template>
 
-				<template v-slot:content>
+				<template #content>
 					{{ movie.title }}
 				</template>
-			</Card>
+			</MovieCard>
 		</div>
 	</section>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import Card from '../components/Card';
+import MovieCard from '../components/MovieCard';
 export default {
 	name: 'Movies',
 	components: {
-		Card,
+		MovieCard,
 	},
 	computed: {
 		...mapGetters(['getMovies', 'getMovie']),
@@ -37,11 +37,7 @@ export default {
 
 <style lang="scss" scoped>
 #movies {
-	display: flex;
-
-	justify-content: center;
 	background-color: $bg-color-2;
-
 	position: relative;
 }
 
@@ -49,14 +45,15 @@ export default {
 	display: flex;
 	align-items: flex-start;
 	justify-content: flex-start;
-
 	background-color: #ededed;
 	padding: 5rem 0;
 	width: 80%;
+	min-height: 91vh;
+	margin: 0 auto;
+	max-width: 120rem;
 	flex-wrap: wrap;
-	@media only screen and(max-width: $bp-smaller) {
+	@media only screen and(max-width: $v-7) {
 		justify-content: center;
-		width: 90%;
 	}
 }
 </style>

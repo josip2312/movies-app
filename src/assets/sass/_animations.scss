@@ -1,0 +1,31 @@
+//animations
+@keyframes slideUp {
+	0% {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	100% {
+		opacity: 1;
+		transform: inherit;
+	}
+}
+
+@keyframes down {
+	0% {
+		opacity: 0;
+		transform: translateY(-6rem);
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+.fade-enter-active,
+.fade-leave-active {
+	transition: opacity 250ms ease-in-out;
+}
+.fade-enter,
+.fade-leave-to {
+	opacity: 0;
+}

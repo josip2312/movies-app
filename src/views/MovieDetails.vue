@@ -3,18 +3,17 @@
 		<div class="container" v-if="getMovie.title !== ''">
 			<div class="movie-top">
 				<div class="movie-main-info">
-					<h2 class="title">
+					<h2 class="heading-2 title">
 						{{ getMovie.title }}
 					</h2>
 					<div class="year">{{ getMovie.year }}</div>
 					<div class="rating">
 						<div class="rating-top">
-							<span>
-								<img
-									src="../assets/img/emptystar.svg"
-									alt="Star icon"
-								/>
-							</span>
+							<img
+								src="../assets/img/emptystar.svg"
+								alt="Star icon"
+							/>
+
 							<span>{{ getMovie.rating }} <span>/10</span> </span>
 						</div>
 
@@ -24,8 +23,8 @@
 									getMovie.rating_votes,
 								)
 							}}
-							votes</span
-						>
+							votes
+						</span>
 					</div>
 				</div>
 				<div class="movie-sec-info">
@@ -36,7 +35,7 @@
 				<div class="movie-image">
 					<img :src="getMovie.poster" alt="" />
 				</div>
-				<div class="movie-plot">
+				<div class="movie-plot spacing-lg">
 					<p>{{ getMovie.plot }}</p>
 					<div class="actors">
 						<div
@@ -54,9 +53,16 @@
 						</div>
 					</div>
 
-					<a :href="getMovie.trailer.link" class="btn">
+					<a
+						v-if="getMovie.trailer.link"
+						:href="getMovie.trailer.link"
+						class="btn"
+					>
 						See trailer
 					</a>
+					<button v-else href="" class="btn disabled" disabled>
+						Trailer not avaliable
+					</button>
 				</div>
 			</div>
 
@@ -109,25 +115,20 @@ export default {
 
 <style lang="scss" scoped>
 #details {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
 	min-height: 90vh;
 	padding-bottom: 5rem;
 }
 .container {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 
-	width: 75%;
+	width: 80%;
 	max-width: 120rem;
 	margin: 0 auto;
 	background-color: $bg-color-2;
 	padding-bottom: 5rem;
-	@media only screen and(max-width:$bp-smallest) {
-		width: 85%;
+	@media only screen and(max-width:$v-5) {
+		width: 90%;
 	}
 }
 
@@ -142,44 +143,45 @@ export default {
 
 		padding-top: 2rem;
 		width: 80%;
+		max-width: 100rem;
 
 		margin: 0 auto;
 
-		@media only screen and(max-width:$bp-smallest) {
+		@media only screen and(max-width:$v-5) {
 			flex-direction: column;
 			align-items: center;
 		}
 
-		h2 {
-			font-size: 3rem;
+		.heading-2 {
 			font-weight: 500;
 			margin-right: 1rem;
 
-			@media only screen and(max-width:$bp-smallest) {
+			@media only screen and(max-width:$v-5) {
 				text-align: center;
 				margin: 0;
 			}
 		}
 		.year {
-			@media only screen and(max-width:$bp-smallest) {
+			@media only screen and(max-width:$v-5) {
 				margin-bottom: 1rem;
 			}
 		}
 		.rating {
-			display: flex;
-			flex-direction: column;
 			margin-left: auto;
 
-			@media only screen and(max-width:$bp-smallest) {
+			@media only screen and(max-width:$v-5) {
 				margin: 0;
 				text-align: center;
-				margin-bottom: 1rem;
 			}
 
 			.rating-top {
 				display: flex;
 				align-items: center;
-				justify-content: space-between;
+				img {
+					width: 2.5rem;
+					height: 2.5rem;
+					margin-right: 1.5rem;
+				}
 			}
 			span {
 				font-size: 2rem;
@@ -194,12 +196,9 @@ export default {
 		}
 	}
 	.movie-sec-info {
-		display: flex;
-		align-items: flex-start;
-		justify-content: flex-start;
-
 		padding-bottom: 2rem;
 		width: 80%;
+
 		margin: 0 auto;
 		span {
 			font-size: 1.4rem;
@@ -214,7 +213,7 @@ export default {
 	min-height: 50vh;
 	border-bottom: 1px solid $grey;
 	padding-bottom: 5rem;
-	@media only screen and(max-width:$bp-smaller) {
+	@media only screen and(max-width:$v-7) {
 		flex-direction: column;
 		align-items: center;
 	}
@@ -228,7 +227,8 @@ export default {
 
 		width: 100%;
 		height: 100%;
-		max-width: 40rem;
+		object-fit: cover;
+		max-width: 50rem;
 	}
 }
 .movie-plot {
@@ -236,20 +236,16 @@ export default {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: space-around;
-	max-width: 60ch;
+	justify-content: center;
+	max-width: 50ch;
 
-	margin-top: 2rem;
 	color: $font-headline;
-	@media only screen and(max-width:$bp-medium) {
+	@media only screen and(max-width:$v-9) {
 		flex: 1.5;
 	}
 
 	.actors {
-		width: 75%;
-		@media only screen and(max-width:$bp-smaller) {
-			margin: 2rem;
-		}
+		width: 90%;
 	}
 	.actor {
 		&:not(:last-child) {
@@ -263,15 +259,16 @@ export default {
 		}
 	}
 	p {
-		@media only screen and(max-width:$bp-smaller) {
-			margin-top: 1rem;
+		@media only screen and(max-width:$v-7) {
+			margin-top: 5rem;
 		}
 
-		width: 75%;
+		width: 90%;
+
 		margin: 0 auto;
 	}
 	.btn {
-		width: 75%;
+		width: 90%;
 	}
 }
 .movie-details {

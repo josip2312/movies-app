@@ -6,7 +6,6 @@ import createPersistedState from 'vuex-persistedstate';
 import router from '../router/index';
 
 Vue.use(Vuex);
-let timeout;
 
 export default new Vuex.Store({
 	state: {
@@ -49,16 +48,10 @@ export default new Vuex.Store({
 
 		SET_MOVIES: (state, data) => {
 			state.movies = data.titles;
-			state.movies.filter((movie) => {
-				movie.favorited = false;
-			});
-
-			router.push({ name: 'Movies' });
 		},
 
 		SET_MOVIE: (state, data) => {
 			state.movie = data;
-			router.push({ name: 'MovieDetails' });
 		},
 	},
 	actions: {
@@ -66,14 +59,13 @@ export default new Vuex.Store({
 			try {
 				if (payload === null) {
 					commit('ERROR', 'Please enter a value');
-
-					timeout = setTimeout(() => {
+					setTimeout(() => {
 						commit('CLEAR_ERROR');
-					}, 3000);
+					}, 2000);
 				} else {
 					const res = await axios.get(`search/${payload}`);
-					console.log(res.data);
 					commit('SET_MOVIES', res.data);
+					router.push({ name: 'Movies' });
 				}
 			} catch (error) {
 				console.error(error.response);
@@ -83,15 +75,14 @@ export default new Vuex.Store({
 		async fetchMovie({ commit }, payload) {
 			try {
 				const res = await axios.get(`film/${payload}`);
-
 				commit('SET_MOVIE', res.data);
+				router.push({ name: 'MovieDetails' });
 			} catch (error) {
 				console.error(error.response);
 			}
 		},
 
-		setError({ commit }) {
-			clearTimeout(timeout);
+		clearError({ commit }) {
 			commit('CLEAR_ERROR');
 		},
 	},

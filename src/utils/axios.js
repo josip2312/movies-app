@@ -22,6 +22,7 @@ axios.interceptors.response.use(
 	},
 	function(error) {
 		store.commit('ERROR', error);
+		store.state.loading = false;
 		return Promise.reject(error);
 	},
 );

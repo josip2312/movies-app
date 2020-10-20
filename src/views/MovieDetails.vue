@@ -116,7 +116,6 @@ export default {
 <style lang="scss" scoped>
 #details {
 	min-height: 90vh;
-	padding-bottom: 5rem;
 }
 .container {
 	display: flex;
@@ -232,16 +231,19 @@ export default {
 	}
 }
 .movie-plot {
-	flex: 2;
+	flex: 1;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	max-width: 50ch;
 
+	padding: 3rem 2rem;
 	color: $font-headline;
-	@media only screen and(max-width:$v-9) {
-		flex: 1.5;
+
+	.actors,
+	p,
+	.btn {
+		max-width: 50ch;
 	}
 
 	.actors {

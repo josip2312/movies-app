@@ -13,9 +13,8 @@ export default new Vuex.Store({
 		isError: false,
 		loading: false,
 
-		movies: {},
+		movies: [],
 		movie: {},
-		favorites: [],
 	},
 	plugins: [
 		createPersistedState({
@@ -23,7 +22,6 @@ export default new Vuex.Store({
 			reducer: (state) => ({
 				movies: state.movies,
 				movie: state.movie,
-				favorites: state.favorites,
 				loading: state.loading,
 			}),
 		}),
@@ -31,7 +29,6 @@ export default new Vuex.Store({
 
 	getters: {
 		getMovies: (state) => state.movies,
-		getFavorites: (state) => state.favorites,
 		getMovie: (state) => state.movie,
 		getError: (state) => state.error,
 		isError: (state) => state.isError,
@@ -86,5 +83,4 @@ export default new Vuex.Store({
 			commit('CLEAR_ERROR');
 		},
 	},
-	modules: {},
 });

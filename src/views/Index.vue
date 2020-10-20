@@ -54,8 +54,8 @@ main {
 	padding: 5rem 2.5rem;
 	box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
 	text-align: center;
-
-	animation: down 1s ease-in-out forwards;
+	margin-top: -5rem;
+	animation: down 750ms ease-out forwards;
 	.heading-1 {
 		margin-bottom: 5rem;
 	}

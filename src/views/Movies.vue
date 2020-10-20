@@ -42,18 +42,13 @@ export default {
 }
 
 .container {
-	display: flex;
-	align-items: flex-start;
-	justify-content: flex-start;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
 	background-color: #ededed;
 	padding: 5rem 0;
 	width: 80%;
 	min-height: 91vh;
 	margin: 0 auto;
 	max-width: 120rem;
-	flex-wrap: wrap;
-	@media only screen and(max-width: $v-7) {
-		justify-content: center;
-	}
 }
 </style>

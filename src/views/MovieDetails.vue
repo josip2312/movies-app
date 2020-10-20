@@ -161,7 +161,9 @@ export default {
 			}
 		}
 		.year {
+			margin-right: 2rem;
 			@media only screen and(max-width:$v-5) {
+				margin-right: 0;
 				margin-bottom: 1rem;
 			}
 		}
@@ -177,18 +179,21 @@ export default {
 				display: flex;
 				align-items: center;
 				img {
+					flex-shrink: 0;
 					width: 2.5rem;
 					height: 2.5rem;
 					margin-right: 1.5rem;
 				}
-			}
-			span {
-				font-size: 2rem;
 				span {
-					color: $font-para;
-					font-size: 1.4rem;
+					flex-shrink: 0;
+					font-size: 2rem;
+					span {
+						color: $font-para;
+						font-size: 1.4rem;
+					}
 				}
 			}
+
 			.votes {
 				font-size: 1.4rem;
 			}

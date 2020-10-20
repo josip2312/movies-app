@@ -1,9 +1,16 @@
 <template>
 	<footer class="footer">
 		<div class="footer-up">
-			<img src="../assets/img/ig.svg" alt="" />
-			<img src="../assets/img/linkedin.svg" alt="" />
-			<img src="../assets/img/github.svg" alt="" />
+			<a href="#">
+				<img src="../assets/img/ig.svg" alt="Instagram" />
+			</a>
+			<a href="#">
+				<img src="../assets/img/linkedin.svg" alt="Linkedin" />
+			</a>
+
+			<a href="#">
+				<img src="../assets/img/github.svg" alt="Github" />
+			</a>
 		</div>
 
 		<div class="footer-down">

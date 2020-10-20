@@ -57,6 +57,7 @@
 						v-if="getMovie.trailer.link"
 						:href="getMovie.trailer.link"
 						class="btn"
+						target="_blank"
 					>
 						See trailer
 					</a>
